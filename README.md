@@ -1,6 +1,6 @@
 # Our-Pleasure Bot
 
-A lightweight Discord NSFW (Hentai) bot built with Java 25, JDA 6, Spring Boot 4, and PostgreSQL, packaged using Nix (Devenv) for easy development and deployment.
+A lightweight Discord NSFW, bot built with Java 25, JDA 6, Spring Boot 4, and PostgreSQL, packaged using Nix (Devenv) for easy development and deployment.
 
 ---
 
