@@ -24,6 +24,8 @@
     DB_USERNAME = "pleasure_user";
     DB_PASSWORD = "pleasure_pass_123";
     BOT_COMMANDS_LANG = "ru";
+    BOT_ADMIN_GUILD_ID = "";
+    BOT_ADMIN_CHANNEL_ID = "";
   };
 
   processes = {

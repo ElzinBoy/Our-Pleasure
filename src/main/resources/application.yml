@@ -16,3 +16,5 @@ discord:
 bot:
   commands:
     lang: ${BOT_COMMANDS_LANG:ru}
+    admin-guild-id: ${BOT_ADMIN_GUILD_ID:}
+    admin-channel-id: ${BOT_ADMIN_CHANNEL_ID:}

@@ -23,12 +23,14 @@ To run the project locally, you will need [Nix](https://nixos.org/) and [Devenv]
 Create a `.env` file in the root of the project:
 ```env
 DB_HOST=127.0.0.1
-DB_PORT=5430
+DB_PORT=5435
 DB_NAME=pleasure_db
 DB_USERNAME=pleasure_user
 DB_PASSWORD=pleasure_pass_123
 DISCORD_BOT_TOKEN=your_discord_bot_token_here
 BOT_COMMANDS_LANG=ru # Set to "en" for English, "ru" for Russian (default)
+BOT_ADMIN_GUILD_ID= # Optional: restrict command to a specific server (Guild) ID. If empty, registers globally.
+BOT_ADMIN_CHANNEL_ID= # Optional: restrict command to a specific channel ID
 ```
 > [!IMPORTANT]
 > The `.env` file contains sensitive credentials and is ignored by Git. Do not commit it.

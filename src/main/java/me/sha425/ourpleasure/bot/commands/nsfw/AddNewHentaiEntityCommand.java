@@ -31,6 +31,12 @@ public class AddNewHentaiEntityCommand implements SlashCommand {
     @Value("${bot.commands.lang:ru}")
     private String lang;
 
+    @Value("${bot.commands.admin-guild-id:}")
+    private String adminGuildId;
+
+    @Value("${bot.commands.admin-channel-id:}")
+    private String adminChannelId;
+
     public AddNewHentaiEntityCommand(HentaiService hentaiService, Hentai hentaiCommand) {
         this.hentaiService = hentaiService;
         this.hentaiCommand = hentaiCommand;
@@ -50,6 +56,13 @@ public class AddNewHentaiEntityCommand implements SlashCommand {
 
     @Override
     public void execute(SlashCommandInteractionEvent event) {
+        if (adminChannelId != null && !adminChannelId.isBlank() && !event.getChannel().getId().equals(adminChannelId)) {
+            event.reply("en".equalsIgnoreCase(lang) 
+                    ? "This command can only be used in the designated admin channel." 
+                    : "Эту команду можно использовать только в разрешённом админ-канале.").setEphemeral(true).queue();
+            return;
+        }
+
         HentaiEntity entity = new HentaiEntity();
 
         entity.setTitle(Objects.requireNonNull(event.getOption("title")).getAsString());
@@ -145,7 +158,10 @@ public class AddNewHentaiEntityCommand implements SlashCommand {
 
     @Override
     public Set<String> getGuildIds() {
-        return Set.of("1182397718757384323");
+        if (adminGuildId == null || adminGuildId.isBlank()) {
+            return Set.of();
+        }
+        return Set.of(adminGuildId);
     }
 
     @Override
