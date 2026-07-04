@@ -10,7 +10,7 @@
     enable = true;
     package = pkgs.postgresql_16;
     listen_addresses = "127.0.0.1";
-    port = 5430;
+    port = 5435;
     initialDatabases = [
       { name = "pleasure_db"; }
     ];
@@ -19,7 +19,7 @@
 
   env = {
     DB_HOST = "127.0.0.1";
-    DB_PORT = "5430";
+    DB_PORT = "5435";
     DB_NAME = "pleasure_db";
     DB_USERNAME = "pleasure_user";
     DB_PASSWORD = "pleasure_pass_123";
