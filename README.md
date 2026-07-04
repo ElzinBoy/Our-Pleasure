@@ -16,6 +16,9 @@ A lightweight Discord NSFW (Hentai) bot built with Java 25, JDA 6, Spring Boot 4
 
 To run the project locally, you will need [Nix](https://nixos.org/) and [Devenv](https://devenv.sh/) installed.
 
+> [!NOTE]
+> Devenv requires Nix experimental features (`nix-command` and `flakes`) to be enabled. If they are not enabled, you can enable them by adding `experimental-features = nix-command flakes` to your Nix configuration file (e.g. `~/.config/nix/nix.conf`).
+
 ### 1. Configure Environment Variables
 Create a `.env` file in the root of the project:
 ```env
@@ -48,8 +51,11 @@ On your remote server, run:
 curl -L https://nixos.org/nix/install | sh
 . ~/.nix-profile/etc/profile.d/nix.sh
 
+# Enable experimental Nix features (nix-command and flakes) required for Devenv
+mkdir -p ~/.config/nix && echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+
 # Install Devenv
-nix profile install nixpkgs#devenv
+nix profile add nixpkgs#devenv
 ```
 
 ### 2. Clone the Project and Configure
